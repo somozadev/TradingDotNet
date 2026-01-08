@@ -44,7 +44,7 @@ public class CsvTickSource : ITickSource
             
             //native split (to be optimized with span)
             var parts = line.Split(',');
-            if(parts.Length < 0) continue;
+            if(parts.Length < 4) continue;
             
             if(!long.TryParse(parts[0], NumberStyles.Integer, CultureInfo.InvariantCulture, out var ts))
                 throw new FormatException($"Invalid timestamp at line {lineNo}");
